@@ -1,0 +1,11 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "00:00"
+  open-pull-requests-limit: 32
+  target-branch: master
+  assignees:
+  - Cloud11665

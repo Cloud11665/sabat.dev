@@ -1,0 +1,28 @@
+[flask]
+	JSON_AS_ASCII = false
+	APPLICATION_ROOT = "/"
+	PREFERRED_URL_SCHEME = "https"
+	JSON_SORT_KEYS = false
+	CACHE_TYPE = "simple"
+	CACHE_DIR = "./cache"
+	CACHE_DEFAULT_TIMEOUT = 300
+	CACHE_IGNORE_ERRORS = true
+	SQLALCHEMY_DATABASE_URI = "sqlite:///db.sqlite3"
+	SQLALCHEMY_TRACK_MODIFICATIONS = false
+	STATISTICS_DEFAULT_DATE_SPAN = 31
+
+[tool.pytest.ini_options]
+	disable_test_id_escaping_and_forfeit_all_rights_to_community_support = true
+	console_output_style = "count"
+	addopts = "-vvrxXs --no-summary --color=auto"
+	python_files = [
+		"test_cla.py",
+		"test_nxt.py",
+		"test_tim.py",
+		"test_sub.py",
+		"test_tta.py"
+	]
+	markers = [
+		"full: runs the full test suite (tests every klass)",
+		"serial"
+	]

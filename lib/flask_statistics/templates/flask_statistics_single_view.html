@@ -1,0 +1,152 @@
+{%- extends "flask_statistics_layout.html" -%}
+
+{%- block content -%}
+<div class="form-row justify-content-md-center">
+  <div class="form-group col-md-3">
+    <label for="startDate">Start Date</label>
+    <input type="date" class="form-control" id="startDate" value="{{start_date}}">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="endDate">End Date</label>
+    <input type="date" class="form-control" id="endDate" value="{{end_date}}">
+  </div>
+  <div class="form-group d-flex align-items-end">
+    <button class="btn-c" onclick="onUpdateClick()">Update</button>
+  </div>
+</div>
+
+<div class="row justify-content-md-center">
+  <div class="col-md-8">
+    <canvas id="userChart"></canvas>
+  </div>
+</div>
+
+<div class="row justify-content-md-center">
+  <div class="col-md-8">
+    <table class="table table-sm table-bordered">
+      <thead>
+        <tr>
+          <th>URL</th>
+          <th>Params</th>
+          <th>Refferer</th>
+          <th>Method</th>
+          <th>Status</th>
+          <th>Duration</th>
+          <th>OS</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%- for request in requests[:49] -%}
+        <tr>
+          <td>{{request.path}}</td>
+          <td>{{request.params}}</td>
+          <td>{{request.referrer}}</td>
+          <td>{{request.method}}</td>
+          <td>
+            {%- set status = request.status_code -%}
+            {%- if 200 <= status < 300 -%}
+              <span class="text-success">{{status}}</span>
+            {%- elif 400 <= status < 600 -%}
+              <span class="text-danger">{{status}}</span>
+            {%- else -%}
+              {{status}}
+            {%- endif -%}
+          </td>
+          <td>{{request.response_time|round(5)}} s</td>
+          <td>{{request.platform}}</td>
+          <td>{{request.date.strftime("%Y-%m-%d %H:%M:%S")}}</td>
+        </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  function hexToRgbA(hex){
+    var c;
+    if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+      c= hex.substring(1).split('');
+      if(c.length== 3){
+        c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+      }
+      c= '0x'+c.join('');
+      return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',1)';
+    }
+    throw new Error('Bad Hex');
+  }
+
+  let textColor = hexToRgbA(window.getComputedStyle(document.documentElement).getPropertyValue('--text-light').substring(1));
+
+  function onUpdateClick() {
+    // Reloads page with new query which includes new dates
+    let startDate = document.getElementById("startDate").value;
+    let endDate = document.getElementById("endDate").value;
+
+    let currentParams = new URLSearchParams(location.search);
+  
+    currentParams.delete("start");
+    currentParams.delete("end");
+  
+    currentParams.append("start", startDate);
+    currentParams.append("end", endDate);
+
+    // A change in location.search reloads page automatically
+    location.search = currentParams.toString();
+  }
+
+  var userChartData = {{user_chart_data|tojson|safe}};
+
+  var ctx = document.getElementById("userChart");
+  var userChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      datasets: [
+        {
+          label: "Hits",
+          data: userChartData[0],
+          fill: false,
+          borderColor: "#e91e63"
+        },
+        {
+          label: "Unique Hits",
+          data: userChartData[1],
+          fill: false,
+          borderColor: "#2196f3"
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        position: "top",
+        text: "Hits for {{path}}"
+      },
+      animation: false,
+      scales: {
+        xAxes: [{
+          type: 'time',
+          time: {
+            unit: 'day',
+          },
+          gridLines: {
+            color: textColor,
+            lineWidth: 0.5
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            precision: 0,
+          },
+          gridLines: {
+            color: textColor,
+            lineWidth: 0.5
+          }
+        }]
+      }
+    }
+  });
+</script>
+{%- endblock -%}

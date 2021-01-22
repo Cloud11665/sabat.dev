@@ -1,0 +1,32 @@
+@import 'vars.css';
+
+.theme-icon {
+  display: none;
+}
+
+.dark #darkIcon {
+  display: block;
+}
+
+.light #lightIcon {
+  display: block;
+}
+.dark {
+	--bg-dark: #232426;
+	--bg-mid: #333335;
+	--bg-light: #3b3b3f;
+
+	--text-light: #fffde5;
+	--text-dark: #333335;
+	--text-accent: #45966e;
+}
+
+.light {
+	--bg-dark: #fffde5;
+	--bg-mid: #333335;
+	--bg-light: #3b3b3f;
+
+	--text-light: #232426;
+	--text-dark: #333335;
+	--text-accent: #45966e;
+}

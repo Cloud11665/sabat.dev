@@ -1,0 +1,27 @@
+:root {
+	font-size: 16px;
+	font-family: 'Quicksand';
+
+	--transition-speed: 600ms;
+	/** Color palette **/
+	--bg-dark: #232426;
+	--bg-mid: #333335;
+	--bg-light: #3b3b3f;
+
+	--text-light: #fffde5;
+	--text-dark: #333335;
+	--text-accent: #45966e;
+	
+	--accent-light: #45966e;
+	--accent-dark: #326e50;
+
+	--navbar-bg-dark: #232426;
+	--navbar-mid: #333335;
+	--navbar-light: #3b3b3f;
+
+	--navbar-text-light: #fffde5;
+	--navbar-text-dark: #333335;
+	--navbar-text-accent: #45966e;
+
+	/** ------------- **/
+}

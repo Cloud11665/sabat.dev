@@ -1,0 +1,47 @@
+name: API
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  API:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        pip install flake8
+        pip install -r requirements.txt
+
+    - name: Start the http server on port 5000
+      run: |
+        python main.py &
+
+    - name: TTA test
+      run: |
+        pytest ./tests/test_tta.py
+
+    - name: SUB test
+      run: |
+        pytest ./tests/test_sub.py
+
+    - name: CLA test
+      run: |
+        pytest ./tests/test_cla.py
+
+    - name: NXT test
+      run: |
+        pytest ./tests/test_nxt.py
+
+    - name: TIM test
+      run: |
+        pytest ./tests/test_tim.py
+
