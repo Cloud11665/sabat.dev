@@ -50,6 +50,10 @@ class Request(db.Model):
 statistics = flask_statistics.Statistics(app, db, Request)
 db.create_all()
 
+
+if __name__ == "__main__":
+	app.run(debug=True)
+
 # q = (
 # 	db.session.query(tables.Request)p
 # )
