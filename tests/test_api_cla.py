@@ -2,7 +2,7 @@ import threading
 
 import requests
 
-from wsgi import app
+from main import app
 
 def test_basic():
 	a = threading.Thread(target=app.run)

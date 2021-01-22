@@ -1,14 +1,20 @@
+import contextlib
+import os
 import threading
 import concurrent.futures
 
 import requests
+import flask
 
-from wsgi import app
+from main import app
 
 def all_klass(api_endpoint:str, urlargs:str=""):
-	a = threading.Thread(target=app.run, kwargs={"processes":1, "threaded":True})
-	a.daemon = True
-	a.start()
+
+	with contextlib.redirect_stdout(os.devnull),\
+			contextlib.redirect_stderr(os.devnull):
+				a = threading.Thread(target=app.run, kwargs={"processes":1,"threaded":True})
+				a.daemon = True
+				a.start()
 
 	klass_list = requests.get(f"http://localhost:5000/api/cla").json()["resp"]
 	tpool = []
