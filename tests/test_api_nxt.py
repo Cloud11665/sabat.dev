@@ -2,7 +2,7 @@ import threading
 
 import requests
 
-from main import app
+from app import app
 
 def test_basic():
 	a = threading.Thread(target=app.run)

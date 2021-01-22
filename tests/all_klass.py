@@ -6,7 +6,7 @@ import concurrent.futures
 import requests
 import flask
 
-from main import app
+from app import app
 
 def all_klass(api_endpoint:str, urlargs:str=""):
 

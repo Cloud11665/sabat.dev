@@ -2,7 +2,7 @@ import threading
 
 import requests
 
-from main import app
+from app import app
 
 def url(route:str):
 	a = threading.Thread(target=app.run)

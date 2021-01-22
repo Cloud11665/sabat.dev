@@ -62,11 +62,11 @@ pipenv install -r requirements.txt
 > I use NGINX listening to port 5000 and gunicorn to serve the app.
 When running on something like [GNU screen](https://www.gnu.org/software/screen) or [tmux](https://github.com/tmux/tmux).
 ```
-python -m gunicorn main:app
+python -m gunicorn wsgi:app
 ```
 When running in the background.
 ```
-nohup python -m gunicorn main:app </dev/null >/dev/null 2>&1&
+nohup python -m gunicorn wsgi:app </dev/null >/dev/null 2>&1&
 ```
 &nbsp;
 
