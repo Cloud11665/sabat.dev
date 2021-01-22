@@ -1,4 +1,4 @@
-name: API
+name: routes
 
 on:
   push:
@@ -20,23 +20,10 @@ jobs:
       run: |
         pip install -r requirements.txt
 
-    - name: TTA test
+    - name: template route tests
       run: |
-        pytest ./tests/test_api_tta.py
+        pytest ./tests/test_routes.py
 
-    - name: SUB test
+    - name: statistics page tests
       run: |
-        pytest ./tests/test_api_sub.py
-
-    - name: CLA test
-      run: |
-        pytest ./tests/test_api_cla.py
-
-    - name: NXT test
-      run: |
-        pytest ./tests/test_api_nxt.py
-
-    - name: TIM test
-      run: |
-        pytest ./tests/test_api_tim.py
-
+        pytest ./tests/test_stats.py
