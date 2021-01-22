@@ -14,15 +14,15 @@
 [tool.pytest.ini_options]
 	disable_test_id_escaping_and_forfeit_all_rights_to_community_support = true
 	console_output_style = "count"
-	addopts = "-vvrxXs --no-summary --color=auto"
-	python_files = [
-		"test_cla.py",
-		"test_nxt.py",
-		"test_tim.py",
-		"test_sub.py",
-		"test_tta.py"
-	]
-	markers = [
-		"full: runs the full test suite (tests every klass)",
-		"serial"
-	]
+	addopts = "--verbose -rfpe --no-summary --color=auto"
+	# python_files = [
+	# 	"test_cla.py",
+	# 	"test_nxt.py",
+	# 	"test_tim.py",
+	# 	"test_sub.py",
+	# 	"test_tta.py"
+	# ]
+	# markers = [
+	# 	"full: runs the full test suite (tests every klass)",
+	# 	"serial"
+	# ]
