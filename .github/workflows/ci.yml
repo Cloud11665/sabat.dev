@@ -1,4 +1,4 @@
-name: API
+name: ci
 
 on:
   push:
@@ -7,7 +7,8 @@ on:
     branches: [ master ]
 
 jobs:
-  API:
+  Build:
+
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -18,25 +19,18 @@ jobs:
 
     - name: Install dependencies
       run: |
+        pip install flake8
         pip install -r requirements.txt
 
-    - name: TTA test
+    - name: Build
       run: |
-        pytest ./tests/test_api_tta.py
+        python main.py &
 
-    - name: SUB test
+    - name: Lint with flake8
       run: |
-        pytest ./tests/test_api_sub.py
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    - name: CLA test
+    - name: Test with pytest
       run: |
-        pytest ./tests/test_api_cla.py
-
-    - name: NXT test
-      run: |
-        pytest ./tests/test_api_nxt.py
-
-    - name: TIM test
-      run: |
-        pytest ./tests/test_api_tim.py
-
+        pytest
