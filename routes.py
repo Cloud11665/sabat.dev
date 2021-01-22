@@ -7,6 +7,10 @@ app = flask.blueprints.Blueprint("routes", __name__)
 def home():
 	return flask.render_template("home.j2")
 
+@app.route("/git")
+def git():
+	return flask.redirect("https://github.com/Cloud11665/sabat.dev")
+
 @app.route("/stats")
 def stats():
 	return flask.render_template("stats.j2")
