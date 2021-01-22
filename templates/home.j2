@@ -1,16 +1,15 @@
-{% extends "base.html" %}
+{% extends "base.j2" %}
 
 {% block head %}
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
-	<title>sabat.dev</title>
 {% endblock %}
-
+{% block title %}sabat.dev{% endblock %}
 {% block content %}
 <div class="title">
 	<div class="big">
 		<p>This site is under construction</p>
 	</div>
-	
+
 	<p>Most (if not all) features are not final</p>
 	</br>
 	<p>Made using pure Html, CSS, JS</p>

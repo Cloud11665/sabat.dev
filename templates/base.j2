@@ -2,13 +2,13 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<meta name="author" content="Cloud11665"/>
 		<meta name="description" content="Cloud's devlog/blog"/>
 		<meta name="keywords" content="Cloud11665, Bartek Sabat, Bartek, Sabat"/>
-		
+
 		<meta property="og:image "content="{{ url_for('static', filename='icon/logo.ico') }}"/>
 		<meta property="og:site_name" content="sabat.dev" />
 		<meta property="og:type" content="website"/>
@@ -20,6 +20,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='icon/logo.ico') }}"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand"/>
 		{% block head %}{% endblock %}
+		<title>{% block title %}{% endblock %}</title>
 	</head>
 
 	<body>
