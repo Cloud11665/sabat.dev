@@ -1,7 +1,7 @@
 import flask
 import flask.blueprints
 
-from api.__vars import *
+from api.vlo.vars import DB
 from api.utils.cache import timed_lru_cache
 
 api = flask.blueprints.Blueprint('cla', __name__, url_prefix='/api')

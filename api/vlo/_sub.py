@@ -6,7 +6,7 @@ import flask
 import flask.blueprints
 from bs4 import BeautifulSoup
 
-from api.__vars import *
+from api.vlo.vars import DB
 from api.utils.cache import timed_lru_cache
 
 api = flask.blueprints.Blueprint('sub', __name__, url_prefix='/api')

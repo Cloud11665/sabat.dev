@@ -1,7 +1,7 @@
 import flask
 import flask.blueprints
 
-from api.__vars import *
+from api.vlo.vars import DB
 
 api = flask.blueprints.Blueprint('tim', __name__, url_prefix='/api')
 

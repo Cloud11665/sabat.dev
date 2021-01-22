@@ -4,7 +4,7 @@ import itertools
 
 import requests
 
-from api.__vars import DB
+from api.vlo.vars import DB
 from api.utils.cache import timed_lru_cache
 
 @timed_lru_cache(seconds=3600, maxsize=1024)

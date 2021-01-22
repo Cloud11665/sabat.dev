@@ -3,7 +3,7 @@ import datetime
 import flask
 import flask.blueprints
 
-from api.__vars import DB
+from api.vlo.vars import DB
 from api.utils.jsonify import jsonify
 from api.vlo.edupage import edupage
 
