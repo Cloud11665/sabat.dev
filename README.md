@@ -13,7 +13,7 @@
       <img src="https://img.shields.io/github/workflow/status/Cloud11665/sabat.dev/build?color=45966E&label=build&logo=python&logoColor=ffffff" alt="build status" height="23">
     </a>
     <a href="https://github.com/Cloud11665/sabat.dev/actions?query=workflow%3AAPI">
-      <img src="https://img.shields.io/github/workflow/status/Cloud11665/sabat.dev/test?color=45966E&label=API&logo=flask" alt="api status" height="23">
+      <img src="https://img.shields.io/github/workflow/status/Cloud11665/sabat.dev/API?color=45966E&label=API&logo=flask" alt="api status" height="23">
     </a>
   </p>
   <p align="center">
