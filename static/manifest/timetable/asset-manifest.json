@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/timetable/main.2ae47eeb.chunk.css",
+    "main.js": "/static/js/timetable/main.2149054c.chunk.js",
+    "main.js.map": "/static/js/timetable/main.2149054c.chunk.js.map",
+    "runtime-main.js": "/static/js/timetable/runtime-main.48e9485c.js",
+    "runtime-main.js.map": "/static/js/timetable/runtime-main.48e9485c.js.map",
+    "static/js/2.308bcaa3.chunk.js": "/static/js/timetable/2.308bcaa3.chunk.js",
+    "static/js/2.308bcaa3.chunk.js.map": "/static/js/timetable/2.308bcaa3.chunk.js.map",
+    "static/js/3.ec5cec50.chunk.js": "/static/js/timetable/3.ec5cec50.chunk.js",
+    "static/js/3.ec5cec50.chunk.js.map": "/static/js/timetable/3.ec5cec50.chunk.js.map",
+    "index.html": "/templates/timetable.html",
+    "static/css/main.2ae47eeb.chunk.css.map": "/static/css/timetable/main.2ae47eeb.chunk.css.map",
+    "static/js/2.308bcaa3.chunk.js.LICENSE.txt": "/static/js/timetable/2.308bcaa3.chunk.js.LICENSE.txt",
+    "static/js/main.2149054c.chunk.js.LICENSE.txt": "/static/js/timetable/main.2149054c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/timetable/runtime-main.48e9485c.js",
+    "static/js/timetable/2.308bcaa3.chunk.js",
+    "static/css/timetable/main.2ae47eeb.chunk.css",
+    "static/js/timetable/main.2149054c.chunk.js"
+  ]
+}
