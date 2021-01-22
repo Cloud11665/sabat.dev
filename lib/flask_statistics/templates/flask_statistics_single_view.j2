@@ -1,4 +1,4 @@
-{%- extends "flask_statistics_layout.html" -%}
+{%- extends "flask_statistics_layout.j2" -%}
 
 {%- block content -%}
 <div class="form-row justify-content-md-center">
@@ -85,10 +85,10 @@
     let endDate = document.getElementById("endDate").value;
 
     let currentParams = new URLSearchParams(location.search);
-  
+
     currentParams.delete("start");
     currentParams.delete("end");
-  
+
     currentParams.append("start", startDate);
     currentParams.append("end", endDate);
 

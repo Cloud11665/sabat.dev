@@ -2,12 +2,11 @@ import datetime
 import time
 
 import requests as rqs
-from flask import Flask, Response, g, request, render_template, Blueprint
+from flask import Flask, Response, g, request, render_template, Blueprint, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_sqlalchemy import Model
 from .utils import StatisticsQueries
 from typing import Callable
-
 
 class Statistics:
     def __init__(
@@ -52,12 +51,13 @@ class Statistics:
         self.app.teardown_request(self.teardown_request)
 
         # Blueprint
-        self.blueprint = Blueprint("statistics", __name__, template_folder="./templates",
-                                   url_prefix="/statistics")
-        self.blueprint.add_url_rule("/", "index", self.index_view)
+        self.blueprint = Blueprint("statistics", __name__, template_folder="./templates")
+        self.blueprint.add_url_rule("/statistics/", "index", self.index_view)
         if before_f is not None:
             self.blueprint.before_request(before_f)
         self.app.register_blueprint(self.blueprint)
+
+        self.urls = ['%s' % rule for rule in self.app.url_map.iter_rules()]
 
         if "disable_f" in kwargs:
             self.disable_f = kwargs["disable_f"]
@@ -95,7 +95,7 @@ class Statistics:
             unique_users = self.api.get_number_of_unique_visitors(start_date,
                                                                  end_date)
 
-            return render_template("flask_statistics_index.html",
+            return render_template("flask_statistics_index.j2",
                                    routes=routes,
                                    hits=hits,
                                    unique_users=unique_users,
@@ -113,7 +113,7 @@ class Statistics:
                                                        end_date,
                                                        path)
 
-        return render_template("flask_statistics_single_view.html",
+        return render_template("flask_statistics_single_view.j2",
                                path=path,
                                requests=requests,
                                user_chart_data=user_chart_data,
@@ -161,6 +161,9 @@ class Statistics:
 
         try:
             if self.disable_f():
+                return None
+
+            if request.path not in self.urls:
                 return None
 
             # Take time when request ended
