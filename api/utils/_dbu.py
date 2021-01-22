@@ -98,9 +98,5 @@ def sync_db():
 	with open("./api/db.json", "w", encoding="utf-8") as f:
 		json.dump(DB,f,indent=2,ensure_ascii=False,sort_keys=True)
 
-	if __name__ != "__main__":
-		update()
-		return flask.jsonify({"success":True}), 200
-
 if __name__ == "__main__":
 	sync_db()
