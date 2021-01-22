@@ -11,7 +11,7 @@ from api.utils.cache import timed_lru_cache
 
 api = flask.blueprints.Blueprint('sub', __name__, url_prefix='/api')
 
-@timed_lru_cache(seconds=3600, maxsize=1024)
+@timed_lru_cache(seconds=3600*2, maxsize=1024)
 def substitutions(c:str, o:int):
 	date_today = datetime.datetime.today() + datetime.timedelta(days=o)
 	#date_today = f"{date_today.year}-{str(date_today.month).rjust(2,'0')}-{str(date_today.day).rjust(2,'0')}"

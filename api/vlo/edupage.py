@@ -7,7 +7,7 @@ import requests
 from api.vlo.vars import DB
 from api.utils.cache import timed_lru_cache
 
-@timed_lru_cache(seconds=3600, maxsize=1024)
+@timed_lru_cache(seconds=3600*2, maxsize=1024*16)
 def edupage(c:str, o:int):
 	today = datetime.date.today()
 
@@ -30,7 +30,7 @@ def edupage(c:str, o:int):
 			"__args": [
 				None,
 				{
-					"year": 2020,#int(last_monday.year), just edupage things :)))))
+					"year": int(last_monday.year),#  just edupage things :)))))
 					"datefrom": str(last_monday),
 					"dateto": str(next_friday),
 					"id": DB["VLO"]["CLASS"]["IDR"][c],
