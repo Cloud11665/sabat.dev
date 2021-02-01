@@ -16,7 +16,7 @@ itsdangerous==1.1.0
 Jinja2==2.11.3
 lxml==4.6.2
 MarkupSafe==1.1.1
-packaging==20.8
+packaging==20.9
 pluggy==0.13.1
 py==1.10.0
 pyparsing==2.4.7
