@@ -2,7 +2,7 @@
   <h3 align="center">
     <p>&nbsp;</p>
     <a href="https://github.com/Cloud11665/sabat.dev#----------------">
-      <img src="https://raw.githubusercontent.com/Cloud11665/sabat.dev/master/images/head.png" height="120" alt="SABAT.DEV >>">
+      <img src="https://raw.githubusercontent.com/Cloud11665/sabat.dev/master/images/banner.png" height="120" alt="SABAT.DEV >>">
     <p>&nbsp;</p>
    </h3>
   <p align="center">
@@ -11,9 +11,6 @@
     </a>
     <a href="https://github.com/Cloud11665/sabat.dev/actions?query=workflow%3Abuild">
       <img src="https://img.shields.io/github/workflow/status/Cloud11665/sabat.dev/build?color=45966E&label=build&logo=python&logoColor=ffffff" alt="build status" height="23">
-    </a>
-    <a href="https://github.com/Cloud11665/sabat.dev/actions?query=workflow%3AAPI">
-      <img src="https://img.shields.io/github/workflow/status/Cloud11665/sabat.dev/test?color=45966E&label=API&logo=flask" alt="api status" height="23">
     </a>
   </p>
   <h2></h2>
