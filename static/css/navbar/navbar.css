@@ -35,7 +35,7 @@ display: inline-block;
   /*ease-in-out, ease-in-out, ease-in-out, ease-in-out;*/
 }
 
-.btn-c::hover {
+.btn-c:hover {
   color: var(--text-light);
   background-color: var(--accent-dark);
   border-color: var(--accent-dark);
@@ -53,6 +53,28 @@ display: inline-block;
   overflow: hidden;
 }
 
+#root > div > div > div.MuiToolbar-root.MuiToolbar-regular.jss1.MuiToolbar-gutters > div.jss3 > button:nth-child(1) {
+  display: none;
+  visibility: hidden;
+}
+#primary-search-account-menu-mobile > div.MuiPaper-root.MuiMenu-paper.MuiPopover-paper.MuiPaper-elevation8.MuiPaper-rounded > ul > li:nth-child(1) {
+  display: none;
+  visibility: hidden;
+}
+
+.MuiIconButton-colorInherit:hover {
+  color: var(--accent-light);
+}
+
+.jss1 {
+  height: 5rem;
+}
+
+.jss25 {
+  color: var(--text-light);
+	background-color: var(--bg-dark);
+}
+
 #root > div > div > div.MuiBox-root.jss7.jss6 > div:nth-child(2) {
   bottom: 10rem;
   font-size: 1;
@@ -64,8 +86,22 @@ display: inline-block;
   width: calc(100vw - 5rem);
 }
 
+.MuiBackdrop-root {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.MuiTypography-body2:hover {
+  color: var(--text-light) !important;
+}
+
 .MuiToolbar-root {
   margin-left: 5rem;
+}
+
+.MuiLink-root {
+  color: var(--accent-light);
 }
 
 main {
