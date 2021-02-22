@@ -14,7 +14,7 @@ __pycache__/
 db.sqlite3
 
 # python venvs
-.env
-.venv
+.env/
+.venv/
 env/
 venv/
