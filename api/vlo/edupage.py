@@ -30,7 +30,7 @@ def edupage(c:str, o:int):
 			"__args": [
 				None,
 				{
-					"year": int(last_monday.year),#  just edupage things :)))))
+					"year": 2020, #int(last_monday.year),#  just edupage things :)))))
 					"datefrom": str(last_monday),
 					"dateto": str(next_friday),
 					"id": DB["VLO"]["CLASS"]["IDR"][c],
