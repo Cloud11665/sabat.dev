@@ -8,7 +8,7 @@ click==7.1.2
 colorama==0.4.4
 Flask==1.1.2
 Flask-Cors==3.0.10
-Flask-SQLAlchemy==2.4.4
+Flask-SQLAlchemy==2.5.1
 flask-statistics==1.0.2
 idna==2.10
 iniconfig==1.1.1
